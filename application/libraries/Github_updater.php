@@ -92,6 +92,9 @@ class Github_updater
                         }
                         // Otherwise copy the file from the update.
                         else {
+                            if(!file_exists($dir)) {
+                                mkdir($dir, 0755, true);
+                            }
                             copy($dir.'/'.$file->filename, $file->filename);
                         }
                     }
